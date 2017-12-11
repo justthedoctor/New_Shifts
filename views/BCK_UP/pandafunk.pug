@@ -1,0 +1,46 @@
+extends layout
+
+block content
+	p
+		center
+			img(src='/images/logo-pnd.jpg')
+			img(src='/images/btc-logo.jpg', width='256', height='256')
+
+	p
+		center
+			| All Shifts are for experimental and development use only. 
+			br
+			| Pandacoin hift will convert your Pandacoin into Cypherfunk and then send them to your Pandacoin Address at an exchange rate of 1 Satoshi for 1 Pandacoin
+			br
+			| Enter your Pandacoin Address in the Form then send Cypherfunk to address 
+			b #{address}
+			br
+			|  Minimum of 10000 Pandacoin & Maximum of 1000000 Pandacoin
+
+
+	p
+		center
+			a(href='https://chart.googleapis.com/chart?chs=225x225&chld=L|2&cht=qr&chl=pandacoin:' + address + '?amount=1000')
+				img(title='Click to view on Google', src='https://chart.googleapis.com/chart?chs=225x225&chld=L|2&cht=qr&chl=pandacoin:' + address + '?amount=1000')
+	if trans
+			p
+				center Enter information below to receive #{trans.amount} Pandacoin Converted to Cypherfunk
+			p
+				center Transaction Id #{trans.txid}
+			p
+				center
+					form(action='http://tests.cryptodepot.org:8000/pandacoin/funkshift/' + address + '/submit/')
+						input(type='text', name='cypherfunk_address', value='Cypherfunk Address' size='50')
+						br
+						input(type='text', name='pandacoin_address', value='Pandacoin Address' size='50')
+						br
+						input(type='hidden', name='shiftaddress' value= address)
+						input(type='hidden', name='txid', value= trans.txid)
+						input(type='hidden', name='time', value='time')
+						input(type='hidden', name='amount', value= trans.amount)
+						input(type='submit', value='Receive')
+	else
+		p
+			center Waiting for Transaction to Clear
+				meta(http-equiv='refresh', content='30')
+

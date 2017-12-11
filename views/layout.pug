@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title CryptoDepot - #{title}
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+
+.navbar.navbar-default
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-responsive-collapse')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      |  
+      a.navbar-brand(href='/') CryptoDepot
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      ul.nav.navbar-nav
+        //li.active
+          //a(href='/bitcoin') BitBean
+        //li
+          //a(href='/bitcoin') BitCoin
+        li
+          a(href='/cypherfunk') Cypherfunk
+        li
+          a(href='/pandacoin') Pandacoin
+        li
+          a(href='/zeitcoin') Zeitcoin
+        li
+          a(href='http://cryptodepot.org/') CryptoDepot
+
+block content

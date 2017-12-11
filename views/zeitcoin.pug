@@ -1,0 +1,87 @@
+extends layout
+
+block content
+	p
+		center
+			img(src='/images/logo-zeit.png')
+	p
+		center
+			| Token vending machine accepts Dollars or Zeitcoin
+	p
+		center
+			| Please send Zeitcoin to 
+			a(href='zeitcoin:' + address + '?amount=1000') #{address}
+	p
+		center Receive One token per 1000 Zeitcoin up to 5000
+	p
+		center
+			a(href='https://chart.googleapis.com/chart?chs=225x225&chld=L|2&cht=qr&chl=zeitcoin:' + address + '?amount=1000')
+				img(title='Click to view on Google', src='https://chart.googleapis.com/chart?chs=225x225&chld=L|2&cht=qr&chl=zeitcoin:' + address + '?amount=1000')
+	if trans
+		if trans.amount == '1000'
+			p
+				center Click on Machine to Collect
+			p
+				center
+					a(href='http://cryptodepot.org:3000')
+						img(src='/images/machine_token.jpg')
+			p
+				center
+					a(href='http://cryptodepot.org:3000') Reset Machine
+		else if trans.amount == 2000
+			p
+				center Click on Machine to Collect
+			p
+				center
+					a(href='http://cryptodepot.org:3000')
+						img(src='/images/machine_token2.jpg')
+			p
+				center Click on Machine to Collect
+					a(href='http://cryptodepot.org:3000') Reset Machine
+		else if trans.amount == 3000
+			p
+				center Click on Machine to Collect
+			p
+				center
+					a(href='http://cryptodepot.org:3000')
+						img(src='/images/machine_token3.jpg')
+			p
+				center Click on Machine to Collect
+					a(href='http://cryptodepot.org:3000') Reset Machine
+		else if trans.amount == 4000
+			p
+				center Click on Machine to Collect
+			p
+				center
+					a(href='http://cryptodepot.org:3000')
+						img(src='/images/machine_token4.jpg')
+			p
+				center
+					a(href='http://cryptodepot.org:3000') Reset Machine
+		else if trans.amount == 5000
+			p
+				center Click on Machine to Collect
+			p 	center
+					a(href='http://cryptodepot.org:3000')
+						img(src='/images/machine_token5.jpg')
+			p
+				center
+					a(href='http://cryptodepot.org:3000') Reset Machine
+
+	else
+		p
+			center 
+				img(src='/images/machine.jpg')
+				meta(http-equiv='refresh', content='60')
+
+	p
+		center 
+			| This is a Demonstration all Zeitcoin are added to the CryptoDepot 
+			a(href='http://cryptodepot.org/faucet/zeitcoin/') Zeitcoin Faucet
+		center 
+			a(href='http://cryptodepot.org/ttest/data2.html') Current Sales
+			|  - 
+			a(href='https://github.com/justthedoctor/tokendispence') GitHub Repo
+			|  - 
+			a(href='http://cryptodepot.org/') CryptoDepot.org
+
